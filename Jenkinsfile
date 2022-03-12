@@ -9,11 +9,6 @@ pipeline {
                 git 'https://github.com/Mamidal/javaloginapp.git'
             }
         }
-        stage('build package') {
-            steps {
-                sh 'mvn clean package'
-            }
-        }
         stage('SonarQube Analysis') {
             steps {
                	sh "${mvn}/bin/mvn clean verify sonar:sonar -Dsonar.projectKey=test-new"
